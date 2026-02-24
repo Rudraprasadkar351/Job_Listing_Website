@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JobFinder - Find Your Next Job</title>
+
+  <!-- Link to our external CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── HEADER ─── -->
+  <header>
+    <h1>🔍 JobFinder</h1>
+    <p>Browse and find the perfect job for you</p>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by job title or company..." />
+      <button onclick="applyFilters()">Search</button>
+    </div>
+  </header>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <div class="container">
+
+    <!-- LEFT: Filter Sidebar -->
+    <aside class="filters">
+      <div class="filter-box">
+        <h3>Filter Jobs</h3>
+
+        <!-- Location Filter -->
+        <div class="filter-group">
+          <label>Location</label>
+          <select id="filterLocation" onchange="applyFilters()">
+            <option value="">All Locations</option>
+            <option>Gurgaon</option>
+            <option>Bhubneswar</option>
+            <option>Pune</option>
+            <option>Noida</option>
+            <option>Bangalore</option>
+          </select>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <label>Category</label>
+          <select id="filterCategory" onchange="applyFilters()">
+            <option value="">All Categories</option>
+            <option>IT & Engineering</option>
+            <option>Design</option>
+            <option>Marketing</option>
+            <option>Finance</option>
+            <option>Product</option>
+          </select>
+        </div>
+
+        <!-- Experience Level Filter (Checkboxes) -->
+        <div class="filter-group">
+          <label>Experience Level</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" value="Fresher"   onchange="applyFilters()"> Fresher</label>
+            <label><input type="checkbox" value="Mid-Level" onchange="applyFilters()"> Mid-Level</label>
+            <label><input type="checkbox" value="Senior"    onchange="applyFilters()"> Senior</label>
+          </div>
+        </div>
+
+        <!-- Job Type Filter (Checkboxes) -->
+        <div class="filter-group">
+          <label>Job Type</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" value="Full-Time"  onchange="applyFilters()"> Full-Time</label>
+            <label><input type="checkbox" value="Part-Time"  onchange="applyFilters()"> Part-Time</label>
+            <label><input type="checkbox" value="Remote"     onchange="applyFilters()"> Remote</label>
+            <label><input type="checkbox" value="Internship" onchange="applyFilters()"> Internship</label>
+          </div>
+        </div>
+
+        <button class="clear-btn" onclick="clearFilters()">✕ Clear All Filters</button>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Job Cards Area -->
+    <div class="jobs-area">
+      <p class="results-info">Showing <span id="countDisplay">0</span> jobs</p>
+
+      <!-- Job cards will be inserted here by JavaScript -->
+      <div id="jobsGrid"></div>
+
+      <!-- Pagination buttons will be inserted here by JavaScript -->
+      <div class="pagination" id="pagination"></div>
+    </div>
+
+  </div>
+
+  <!-- ─── MODAL (Job Detail Popup) ─── -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <!-- Modal content will be inserted here by JavaScript -->
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ─── TOAST NOTIFICATION ─── -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Link to our external JavaScript file (at the bottom so HTML loads first) -->
+  <script src="script.js"></script>
+
+</body>
+</html>
